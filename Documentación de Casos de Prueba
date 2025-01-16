@@ -3,26 +3,158 @@
 Este documento contiene la especificación de los casos de prueba desarrollados para validar el sistema de registro y autenticación de usuarios.
 
 ---
+## Caso de Prueba 1 
 
-## 🔹 Registro de Usuario
+ Registrar Usuario con Datos Válidos "✅"
 
-| ID | Caso de Prueba | Pasos | Datos de Entrada | Resultado Esperado | Estado |
-|----|--------------|------|----------------|------------------|--------|
-| TC-01 | Registrar Usuario con Datos Válidos | 1. Ir al formulario de registro <br> 2. Ingresar nombre, email y contraseña válidos <br> 3. Confirmar la contraseña <br> 4. Hacer clic en "Registrar" | Nombre: Juan Pérez <br> Email: juan@example.com <br> Contraseña: Pass123$ | Usuario registrado correctamente y mensaje de éxito | ✅ |
-| TC-02 | Validar restricción de nombre (mínimo 2 palabras) | 1. Ir al formulario <br> 2. Ingresar "Juan" como nombre <br> 3. Completar email y contraseña <br> 4. Hacer clic en "Registrar" | Nombre: Juan | Mensaje de error: "El nombre debe tener al menos dos palabras" | ✅ |
-| TC-03 | Validar formato de email incorrecto | 1. Ir al formulario <br> 2. Ingresar "juan@" como email <br> 3. Completar los demás campos <br> 4. Intentar registrar | Email: juan@ | Mensaje de error: "Email inválido" | "⚠️" |
-| TC-04 | Verificar coincidencia de contraseñas | 1. Ingresar contraseña y confirmación diferentes <br> 2. Intentar registrar | Pass123$ / Pass456$ | Mensaje de error: "Las contraseñas no coinciden" | ✅ |
+## Descripción
+"Validar que el usuario pueda registrarse utilizando un nombre, email y contraseña válidos.
 
----
+Precondiciones: sistema en funcionamiento 
 
-## 🔹 Login de Usuario
+Pasos a seguir:
+iniciar en la pagina :https://test-qa.inlaze.com/auth/sign-in
+Ingresar un nombre válido, como ""miguel"".
+Ingresar un email válido y único, como ""migue.bel@example.com"".
+Ingresar una contraseña válida, como ""Password1@"".
+Confirmar la contraseña ingresando nuevamente ""Password1@"".
+Hacer clic en el botón ""Registrar""."
 
-| ID | Caso de Prueba | Pasos | Datos de Entrada | Resultado Esperado | Estado |
-|----|--------------|------|----------------|------------------|--------|
-| TC-05 | Iniciar sesión con credenciales válidas | 1. Ir al formulario de login <br> 2. Ingresar email y contraseña válidos <br> 3. Hacer clic en "Iniciar sesión" | Email: juan@example.com <br> Contraseña: Pass123$ | Acceso exitoso y bienvenida al usuario | ✅ |
-| TC-06 | Intentar login con contraseña incorrecta | 1. Ingresar email correcto y contraseña incorrecta <br> 2. Intentar ingresar | Email: juan@example.com <br> Contraseña: Pass999$ | Mensaje de error: "Credenciales incorrectas" | ✅ |
-| TC-07 | Intentar login con campos vacíos | 1. No llenar email ni contraseña <br> 2. Intentar iniciar sesión | - | Mensaje de error: "Todos los campos son obligatorios" | ✅ |
-| TC-08 | Cerrar sesión correctamente | 1. Iniciar sesión <br> 2. Hacer clic en "Cerrar sesión" | - | Usuario redirigido a la pantalla de login | ✅ |
+## Resultado esperado
+
+"Validar- que el usuario es registrado exitosamente.
+Validar- que el sistema redirige a la pantalla de bienvenida 
+validar -la información es almacenada correctamente en la base de datos"
+
+
+## Caso de Prueba 2
+
+ Validar Campo Nombre con menos de dos palabras "✅"
+
+## Descripción
+"Validar que el campo email rechace formatos incorrectos
+
+Precondiciones:El formulario de registro debe estar operativo
+
+Pasos a seguir:
+Navegar al formulario de registro.
+Ingresar un email inválido, como ""luis.com"".
+Completar los demás campos correctamente.
+Hacer clic en ""inscribirse""."
+
+
+## Resultado esperado
+
+"El sistema muestra un mensaje de error: ""Formato de email inválido"".
+El registro no se procesa."
+
+
+## Caso de Prueba 3 
+
+Validar Formato de Email "⚠️"
+
+## Descripción
+"Validar que el campo email rechace formatos incorrectos
+
+Precondiciones:El formulario de registro debe estar operativo
+
+Pasos a seguir:
+Navegar al formulario de registro.
+Ingresar un email inválido, como ""luis.com"".
+Completar los demás campos correctamente.
+Hacer clic en ""inscribirse""."
+
+## Resultado esperado
+
+"El sistema muestra un mensaje de error: ""Formato de email inválido"".
+El registro no se procesa."
+
+## Caso de Prueba 4 
+
+Validar Contraseña que no cumple requisitos  "✅"
+
+
+## Descripción
+"Verificar que el sistema rechace contraseñas que no cumplen con la política
+
+Precondiciones:El formulario debe estar disponible
+
+Pasos a seguir:
+Navegar al formulario de registro.
+Ingresar una contraseña no válida, como ""pass"".
+Completar los demás campos correctamente.
+Hacer clic en "inscribirse"
+
+## Resultado esperado
+
+"El sistema muestra un mensaje de error
+El registro no se procesa"
+
+
+## Caso de Prueba 5
+
+Validar Formulario con Campos Vacíos "✅"
+
+
+## Descripción
+"Verificar que el boton inscribirse no se habilite si hay campos vacios 
+
+Precondiciones:El formulario debe estar disponible
+
+Pasos a seguir:
+Navegar al formulario de registro.
+No completar uno o más campos obligatorios, como omitir el email.
+Hacer clic en "inscribirse"
+
+## Resultado esperado
+
+validar que el  registro no se procesa
+
+## Caso de Prueba 6
+
+Validar Login con Credenciales Válidas  "✅"
+
+## Descripción
+"Verificar que un usuario pueda iniciar sesión con email y contraseña válidos 
+
+Precondiciones:El usuario debe estar registrado
+
+Pasos a seguir:
+Navegar al formulario de login.
+Ingresar un email y contraseña válidos registrados en el sistema.
+Hacer clic en "Login"
+
+## Resultado esperado
+
+El sistema permite el acceso y muestra el nombre del usuario en la interfaz
+
+
+## Caso de Prueba 7
+
+Validar Cierre de Sesión  "✅"
+
+## Descripción
+"Verificar que el usuario pueda cerrar sesión correctamente.
+
+Precondiciones:El usuario debe estar autenticado en el sistema
+
+Pasos a seguir:
+Iniciar sesión con email y contraseña válidos.
+Navegar a la opción ""Cerrar sesión"".
+Hacer clic en "Cerrar sesión"
+
+## Resultado esperado
+
+"El sistema cierra la sesión del usuario.
+El usuario es redirigido a la pantalla de inicio o login"
+
+
+
+
+
+
+
+
 
 
 
