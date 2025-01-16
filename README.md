@@ -29,7 +29,7 @@ Reglas de seguridad de la contraseña.
 Verificación de coincidencia entre las dos contraseñas ingresadas.
 Restricción de envío del formulario si hay campos vacíos.
 
-test_login_user.py
+test_login_valido.py
 Este script automatiza las pruebas del login, validando:
 
 Inicio de sesión exitoso con credenciales correctas.
