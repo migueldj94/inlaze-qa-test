@@ -1,0 +1,29 @@
+
+
+Este documento contiene la especificación de los casos de prueba desarrollados para validar el sistema de registro y autenticación de usuarios.
+
+---
+
+## 🔹 Registro de Usuario
+
+| ID | Caso de Prueba | Pasos | Datos de Entrada | Resultado Esperado | Estado |
+|----|--------------|------|----------------|------------------|--------|
+| TC-01 | Registrar Usuario con Datos Válidos | 1. Ir al formulario de registro <br> 2. Ingresar nombre, email y contraseña válidos <br> 3. Confirmar la contraseña <br> 4. Hacer clic en "Registrar" | Nombre: Juan Pérez <br> Email: juan@example.com <br> Contraseña: Pass123$ | Usuario registrado correctamente y mensaje de éxito | ✅ |
+| TC-02 | Validar restricción de nombre (mínimo 2 palabras) | 1. Ir al formulario <br> 2. Ingresar "Juan" como nombre <br> 3. Completar email y contraseña <br> 4. Hacer clic en "Registrar" | Nombre: Juan | Mensaje de error: "El nombre debe tener al menos dos palabras" | ✅ |
+| TC-03 | Validar formato de email incorrecto | 1. Ir al formulario <br> 2. Ingresar "juan@" como email <br> 3. Completar los demás campos <br> 4. Intentar registrar | Email: juan@ | Mensaje de error: "Email inválido" | "⚠️" |
+| TC-04 | Verificar coincidencia de contraseñas | 1. Ingresar contraseña y confirmación diferentes <br> 2. Intentar registrar | Pass123$ / Pass456$ | Mensaje de error: "Las contraseñas no coinciden" | ✅ |
+
+---
+
+## 🔹 Login de Usuario
+
+| ID | Caso de Prueba | Pasos | Datos de Entrada | Resultado Esperado | Estado |
+|----|--------------|------|----------------|------------------|--------|
+| TC-05 | Iniciar sesión con credenciales válidas | 1. Ir al formulario de login <br> 2. Ingresar email y contraseña válidos <br> 3. Hacer clic en "Iniciar sesión" | Email: juan@example.com <br> Contraseña: Pass123$ | Acceso exitoso y bienvenida al usuario | ✅ |
+| TC-06 | Intentar login con contraseña incorrecta | 1. Ingresar email correcto y contraseña incorrecta <br> 2. Intentar ingresar | Email: juan@example.com <br> Contraseña: Pass999$ | Mensaje de error: "Credenciales incorrectas" | ✅ |
+| TC-07 | Intentar login con campos vacíos | 1. No llenar email ni contraseña <br> 2. Intentar iniciar sesión | - | Mensaje de error: "Todos los campos son obligatorios" | ✅ |
+| TC-08 | Cerrar sesión correctamente | 1. Iniciar sesión <br> 2. Hacer clic en "Cerrar sesión" | - | Usuario redirigido a la pantalla de login | ✅ |
+
+
+
+
