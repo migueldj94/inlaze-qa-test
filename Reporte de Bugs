@@ -1,0 +1,13 @@
+## BUG-001
+
+# Título: El formulario acepta correos inválidos.
+# Descripción: Al intentar registrar un correo sin un formato válido, el sistema permite enviar el formulario sin mostrar errores.
+#Pasos para Reproducir:
+Ir a la página de registro.
+Ingresar "usuario@" en el campo de correo electrónico.
+Presionar el botón "Registrar".
+Resultado Actual: Registro exitoso con correo inválido.
+Resultado Esperado: Mensaje de error indicando que el correo no es válido.
+Entorno: Chrome , Windows 10.
+
+Evidencia:
