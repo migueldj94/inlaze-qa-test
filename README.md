@@ -12,6 +12,6 @@ Este repositorio contiene los scripts de automatización desarrollados para la p
 ## Instalación
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/inlaze-qa-test.git
+   git@github.com:migueldj94/inlaze-qa-test.git
    cd inlaze-qa-test
 
